@@ -1,6 +1,6 @@
 public class ain {
     public static void main(String[] args) {
-        Car car1 = new Car("Toyota", 0, 50);
+        Car car1 = new Car("Toyota", 0, 100);
         Motorcycle moto1 = new Motorcycle("Harley", 0, false);
 
         car1.displayInfo();
