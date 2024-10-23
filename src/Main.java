@@ -1,4 +1,4 @@
-public class ain {
+public class main {
     public static void main(String[] args) {
         Car car1 = new Car("Toyota", 0, 100);
         Motorcycle moto1 = new Motorcycle("Harley", 0, false);
