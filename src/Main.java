@@ -1,17 +1,24 @@
-public class ain {
+import java.util.Scanner;
+
+public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("Toyota", 0, 50);
-        Motorcycle moto1 = new Motorcycle("Harley", 0, false);
+        Scanner scanner = new Scanner(System.in);
 
-        car1.displayInfo();
-        car1.accelerate();
-        car1.brake();
+        System.out.print("login: ");
+        String login = scanner.nextLine();
 
-        moto1.displayInfo();
-        moto1.accelerate(); // шлем не надет, поэтому ускорение невозможно
-        moto1.accelerate(); // ускорение, если шлем надет
+        System.out.print("password: ");
+        String password = scanner.nextLine();
 
-        System.out.println("Всего автомобилей: " + Car.getTotalCars());
-        System.out.println("Всего мотоциклов: " + Motorcycle.getTotalMotorcycles());
+        System.out.print("confirmPassword: ");
+        String confirmPassword = scanner.nextLine();
+
+        boolean isValid = UserValidator.validateCredentials(login, password, confirmPassword);
+
+        if (isValid) {
+            System.out.println("Валидация пройдена успешно.");
+        } else {
+            System.out.println("Валидация не пройдена.");
+        }
     }
 }
