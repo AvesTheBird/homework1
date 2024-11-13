@@ -1,44 +1,66 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("Toyota", 0, 50);
-        Motorcycle moto1 = new Motorcycle("Harley", 0, false);
+        List<Student> students = new ArrayList<>();
 
-        TransportStorage<Vehicle> transportStorage = new TransportStorage<>();
-        transportStorage.add(car1);
-        transportStorage.add(moto1);
+        Map<String, Integer> grades1 = new HashMap<>();
+        grades1.put("Математика", 4);
+        grades1.put("Физика", 3);
+        grades1.put("Химия", 5);
+        students.add(new Student("Алиса", "A1", 1, grades1));
 
-        System.out.println("Транспорт в гараже:");
-        transportStorage.displayAll();
+        Map<String, Integer> grades2 = new HashMap<>();
+        grades2.put("Математика", 2);
+        grades2.put("Физика", 2);
+        grades2.put("Информатика", 3);
+        students.add(new Student("Вася", "A1", 1, grades2));
 
-        CarRepairService repairService = new CarRepairService();
-        repairService.repair(car1);
+        Map<String, Integer> grades3 = new HashMap<>();
+        grades3.put("Математика", 5);
+        grades3.put("Литература", 4);
+        grades3.put("История", 4);
+        students.add(new Student("Мария", "A1", 1, grades3));
 
+        Map<String, Integer> grades4 = new HashMap<>();
+        grades4.put("Физика", 3);
+        grades4.put("Информатика", 3);
+        grades4.put("Биология", 2);
+        students.add(new Student("Петр", "A1", 1, grades4));
 
+        Map<String, Integer> grades5 = new HashMap<>();
+        grades5.put("Математика", 5);
+        grades5.put("Физика", 4);
+        grades5.put("Химия", 4);
+        grades5.put("Информатика", 5);
+        students.add(new Student("Ольга", "A1", 1, grades5));
 
-        Scanner scanner = new Scanner(System.in);
+        removeLowScoringStudents(students);
 
-        // Ввод числа для проверки деления на 13
-        System.out.print("Введите число для проверки деления на 13: ");
-        int number = scanner.nextInt();
+        advanceStudentsToNextCourse(students);
 
-        DivisibleByThirteen divisibleByThirteen = (n) -> n % 13 == 0;
-        System.out.println(number + " делится на 13? " + divisibleByThirteen.check(number));
+        printStudents(students, 2);
+    }
 
-        // Ввод коэффициентов для вычисления дискриминанта
-        System.out.println("Введите коэффициенты для уравнения вида ax^2 + bx + c = 0:");
-        System.out.print("Введите a: ");
-        double a = scanner.nextDouble();
-        System.out.print("Введите b: ");
-        double b = scanner.nextDouble();
-        System.out.print("Введите c: ");
-        double c = scanner.nextDouble();
+    public static void removeLowScoringStudents(List<Student> students) {
+        students.removeIf(student -> student.getAverageGrade() < 3);
+    }
 
-        DiscriminantCalculator discriminantCalculator = (x, y, z) -> y * y - 4 * x * z;
-        double discriminant = discriminantCalculator.calculate(a, b, c);
-        System.out.println("Дискриминант для уравнения " + a + "x^2 + " + b + "x + " + c + " = 0 равен: " + discriminant);
+    public static void advanceStudentsToNextCourse(List<Student> students) {
+        for (Student student : students) {
+            if (student.getAverageGrade() >= 3) {
+                student.setCourse(student.getCourse() + 1);
+            }
+        }
+    }
 
-        scanner.close();
+    public static void printStudents(List<Student> students, int course) {
+        System.out.println("Студенты на курсе " + course + ":");
+        students.stream()
+                .filter(student -> student.getCourse() == course)
+                .forEach(student -> System.out.println(student.getName()));
     }
 }
