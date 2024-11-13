@@ -6,7 +6,6 @@ public class Student {
     private int course;
     private Map<String, Integer> grades;
 
-    // Constructor
     public Student(String name, String group, int course, Map<String, Integer> grades) {
         this.name = name;
         this.group = group;
