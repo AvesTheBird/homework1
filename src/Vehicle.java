@@ -12,4 +12,9 @@ public abstract class Vehicle {
     public void currentSpeed() {
         System.out.println("Current speed: " + speed + " km/h");
     }
+
+    public String getModel() {
+        return model;
+    }
+
 }
