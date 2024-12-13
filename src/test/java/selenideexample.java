@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
-public class selenideexample {
+public class Selenideexample {
 
     @BeforeClass
     void init(){
