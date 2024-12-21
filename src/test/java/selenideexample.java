@@ -18,9 +18,9 @@ public class Selenideexample {
     void init(){
         Configuration.baseUrl = "https://www.simbirsoft.com/";
         Configuration.browserSize = "1920x2100";
-        Configuration.pageLoadTimeout = 60000; // 60 секунд
-        Configuration.timeout = 40000; // 40 секунд
-        Configuration.headless = false; // Если нужно headless-режим, установи true
+        Configuration.pageLoadTimeout = 60000;
+        Configuration.timeout = 40000;
+        Configuration.headless = false;
     }
 
     @Test
