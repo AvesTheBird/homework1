@@ -1,1 +1,0 @@
-{"uuid":"7f8633bd-3b33-42e8-b49f-9269899173b3","name":"SimbirSoftTests","children":["b72d1ed6-fd3d-4beb-9c88-6f33fa608535"],"befores":[{"name":"initBeforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1735915629870,"stop":1735915629889}],"afters":[],"start":1735915629814,"stop":1735915654836}
